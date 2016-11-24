@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+		xmlns:gap   = "http://phonegap.com/ns/1.0"
+		id	    = "tw.moke.testing"
+		versionCode = "10" 
+		version     = "1.1.1" >
+ 
+	<name>行動比價系統</name>
+	
+	<description>
+		幫助想省錢的人，在購買食品方面，將金錢做到最划算的組合
+	</description>
+	
+	<!-- QRcode Scanner -->
+	<gap:plugin name="cordova-plugin-barcodescanner" source="npm" />
+	<!--gap:plugin name="phonegap-plugin-barcodescanner" source="npm" />
+	<preference name="android-build-tool" value="gradle" /-->
+	<!-- 開場畫面 -->
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+	
+	<author href="http://fs.mis.kuas.edu.tw/~s1102137126/2016_app/" email="1102137126@kuas.edu.tw">
+		kuas mis 畢業專題小組
+	</author>
+	
+	<!-- current version of PhoneGap -->
+	<preference name="phonegap-version" value="3.7.0" />
+	<!-- 設定畫面固定為水平(landscape)、垂直(portrait) -->
+	<preference name="orientation" value="default" />
+	<!-- 加入其它plugin設定 -->
+	
+	
+	<!-- screen: 設定開場畫面的 Resource -->
+	<preference name="SplashScreen" value="images/pig.png" />
+	<!-- 顯示開場畫面的時間(單位: 毫秒) -->
+	<preference name="SplashScreenDelay" value="10" />
+	
+	<access origin="*" subdomains="true" />
+	
+	
+	<!-- icon -->
+	<icon src="images/logo.png" />
+</widget>

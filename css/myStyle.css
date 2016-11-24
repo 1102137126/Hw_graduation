@@ -1,0 +1,36 @@
+/*.topButton {
+	border-color: rgba(221, 221, 221, 0); 
+	background-color: rgba(246, 246, 246, 0); 
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0); 
+	padding: 3px; 
+	font-size: 21.5px;
+	text-decoration: none;
+}
+
+input {
+	
+}
+
+div.topButton-float {
+	float: left;
+	margin: 8px;
+}
+
+#main {
+	clear: both;
+}
+
+#nav {
+	clear: both;
+}
+.nav li a {
+	display: inline;
+}*/
+
+.ui-icon-bell:after {
+	background-image: url("images/bell.svg");
+}
+/* Fallback */
+.ui-nosvg .ui-icon-bell:after {
+	background-image: url("images/bell-black.png");
+}
