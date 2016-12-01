@@ -34,3 +34,40 @@ div.topButton-float {
 .ui-nosvg .ui-icon-bell:after {
 	background-image: url("images/bell-black.png");
 }
+
+tr {
+	height:30px;
+}
+
+img {
+	width: 100%;
+}
+
+a.isClick{
+    margin: 10px;
+    padding: 5px;
+}
+
+a.ntClick{
+    margin: 10px;
+    padding: 5px;
+}
+
+div.headerbtn {
+    float: left;
+    margin: 0 2px 0 2px;	
+}
+
+div.headerbtnR {
+    float: right;
+    margin: 0 2px 0 2px;	
+}
+
+div.iframepage {
+	height: inherit;
+}
+
+.hstyle {
+	float: left; 
+	margin: 12px 0px 0px 16px; 
+}

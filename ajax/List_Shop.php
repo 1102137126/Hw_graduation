@@ -1,8 +1,8 @@
 <?php		
-	//DM
+	//Shop
 	include("../connections_db.php");
-	$sql = "SELECT `id`, `name`, `dmURL` ,`picture`
-			FROM `buy_shop`";
+	$sql = "SELECT `id`, `name`, `picture`
+			FROM `buy_shop` S";
 	$sth = $conn->prepare($sql);
 	$sth->execute();
 	$aaa = $sth->fetchAll();

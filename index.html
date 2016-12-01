@@ -3,55 +3,64 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel="shortcut icon" href="images/logo.png">
+		<title>行動比價系統</title>
+		
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-		<link rel="stylesheet" href="themes/j.min.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		
+		
+		<link rel="stylesheet" href="themes/css.min.css" />
+		<!--link rel="stylesheet" href="themes/j.css" />
+		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" /-->
 		
 		
 		<link rel="stylesheet" href="css/listview-grid.css">
 		<link rel="stylesheet" href="css/myStyle.css">
+		<link href="css/global.css" rel="stylesheet" type="text/css" /><!-- 全商品CSS -->
 		
-		<script src="js/myIndex.js"></script>
+		
+		<script src="http://fs.mis.kuas.edu.tw/~s1102137126/105_graduation/04/js/myIndex.js"></script>
 		<script src="cordova.js"></script>
+		<script src="http://maps.google.com/maps/api/js" type="text/javascript"></script>
 	</head>
-	<body>
+	<body >
 
-		<div data-role="page" id="index-page" class="my-page">
-			
+		<div data-role="page" id="index-page" class="my-page">			
 			<div data-role="panel" id="overlayPanel" data-display="overlay">
-				<h2>Panel Header</h2>    
-			</div> 
-			<div  data-role="tabs">
-				
-				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+				<h2>請忽略這....</h2>
+			</div>
+			<div  data-role="tabs">				
+				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a" >
 					<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-									
-							<div data-role="controlgroup" data-type="" class="ui-corner-all ui-btn-inline" data-mini="true" style="width: 60%">						
-								<!-- bars -->
-								<div style="float:left">
-									<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-bars ui-nodisc-icon ui-alt-icon" href="#overlayPanel"></a>
-								</div>	
-								<!-- search -->
-								<div style="float:left; width: 50%" >
-									<input type="text" name="name" id="name" value="" placeholder="Search..."/>
-								</div>	
-								<div style="float:left">
-									<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-search ui-nodisc-icon ui-alt-icon"></a>
-									
-								</div>	
-							</div>	
-							<div data-role="controlgroup" data-type="" class="ui-corner-all ui-btn-right ui-btn-inline" data-mini="true">
-								<!-- camera -->
-								<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-camera ui-nodisc-icon ui-alt-icon" href="#" id="openScanner" onclick="openScanner()"></a>
-								<!-- heart -->
-								<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-heart ui-nodisc-icon ui-alt-icon"></a>
-								<!-- bell -->
-								<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-bell ui-nodisc-icon ui-alt-icon"></a>
+						<div class="ui-btn-inline" data-mini="true" style="width: 100%; ">
+							<!-- bars -->
+							<div class="headerbtn">
+								<a class="ui-btn ui-btn-icon-notext ui-icon-bars ui-nodisc-icon ui-alt-icon" data-transition="none" href="#overlayPanel"></a>
 							</div>
-						
-						
-						<ul>	
+							<!-- search input -->
+							<div class="headerbtn" style="width: 57%" >
+								<input type="text" id="search1-input" placeholder="Search..."/>
+							</div>
+							<!-- search -->
+							<div class="headerbtn">
+								<a class="ui-btn  ui-btn-icon-notext ui-icon-search ui-nodisc-icon ui-alt-icon" data-transition="none" href="#search-page" onclick="searchsomething('search1-input')"></a>								
+							</div>
+							<!-- bell -->
+							<!--div class="headerbtnR">
+								<a class="ui-btn  ui-btn-icon-notext ui-icon-bell ui-nodisc-icon ui-alt-icon" data-transition="none" href="#alert-page"></a>
+							</div-->
+							<!-- heart -->
+							<div class="headerbtnR">
+								<a class="ui-btn  ui-btn-icon-notext ui-icon-heart ui-nodisc-icon ui-alt-icon" data-transition="none" href="#love-page"></a>
+							</div>
+							<!-- camera -->
+							<div class="headerbtnR">
+								<a class="ui-btn  ui-btn-icon-notext ui-icon-camera ui-nodisc-icon ui-alt-icon" data-transition="none" href="#" id="openScanner" onclick="openScanner()"></a>
+							</div>
+						</div>
+						<ul>
 							<li><a href="#News" data-theme="a" data-ajax="false" class="ui-btn ui-corner-all" id="news" >最新</a></li>
 							<li><a href="#DM" data-theme="a" data-ajax="false" class="ui-btn ui-corner-all" id="dm" >型錄</a></li>
 							<li><a href="#Group" data-theme="a" data-ajax="false" class="ui-btn ui-corner-all" id="group" >分類</a></li>
@@ -63,151 +72,270 @@
 				
 				<!-- 最新消息 -->
 				<div role="main" class="ui-content" id="News">
-					<p>
-					風箏需找它的線，線尋找她的指尖，指尖尋找他的臉，她尋找他的出現。找了好久，飄了好久。我們相愛好不好？
-					</p><p>
-					我只有這樣簡陋的火苗，我能照亮地空間很小，我擁有的只有一角，世界給我的關注很少。我可以做的，是在打開夜晚的時候，只限於一人的燃燒。點了好久。亮了好久。所以相愛好不好？
-					</p><p>
-					有一天你會擱淺，有一天我會蔓延。以一種彷彿注定的局面，以一種看似低調的姿態，彎腰靠近我一點，碰觸你的腳尖。綠了多久，生了多久，還是相愛好不好？
-					</p><p>
-					被剝落的牆面，被遺忘的留言，被荒廢的地點，被錯過的時間。走了很久，跟了很久，停下來相愛好不好？
-					</p><p>
-					如果錯過了這個轉角，如果我還是向下走，你還是往上走。如果接受了命運的玩笑，如果我還是不回頭，如果你還是不低頭，如果這個答案我們還是不揭曉，如果這個事實我們永遠不知道。想了很久，還是要開口，我們相愛好不好？
-					</p><p>
-					庸俗劇情裡的一種生活，陽光，下午，兩個人不說話的幸福，這樣簡單的感覺，也許真的很舒服。忙碌了很久，勞累了很久。試試來相愛好不好？
-					</p><p>
-					還是要繼續一個人的房間？還是要重複兩指尖的煙圈？還是要冷卻三點鐘的茶點？還是要迴避四目交匯的瞬間？猜測了很久，猶豫了很久，剩下的日子，要不要和另一個人擁有？那麼，我們相愛好不好？
-					</p><p>
-					</p><p>
-					</p><p>
-					風箏需找它的線，線尋找她的指尖，指尖尋找他的臉，她尋找他的出現。找了好久，飄了好久。我們相愛好不好？
-					</p><p>
-					我只有這樣簡陋的火苗，我能照亮地空間很小，我擁有的只有一角，世界給我的關注很少。我可以做的，是在打開夜晚的時候，只限於一人的燃燒。點了好久。亮了好久。所以相愛好不好？
-					</p><p>
-					有一天你會擱淺，有一天我會蔓延。以一種彷彿注定的局面，以一種看似低調的姿態，彎腰靠近我一點，碰觸你的腳尖。綠了多久，生了多久，還是相愛好不好？
-					</p><p>
-					被剝落的牆面，被遺忘的留言，被荒廢的地點，被錯過的時間。走了很久，跟了很久，停下來相愛好不好？
-					</p><p>
-					如果錯過了這個轉角，如果我還是向下走，你還是往上走。如果接受了命運的玩笑，如果我還是不回頭，如果你還是不低頭，如果這個答案我們還是不揭曉，如果這個事實我們永遠不知道。想了很久，還是要開口，我們相愛好不好？
-					</p><p>
-					庸俗劇情裡的一種生活，陽光，下午，兩個人不說話的幸福，這樣簡單的感覺，也許真的很舒服。忙碌了很久，勞累了很久。試試來相愛好不好？
-					</p><p>
-					還是要繼續一個人的房間？還是要重複兩指尖的煙圈？還是要冷卻三點鐘的茶點？還是要迴避四目交匯的瞬間？猜測了很久，猶豫了很久，剩下的日子，要不要和另一個人擁有？那麼，我們相愛好不好？
-					</p><p>
-					</p><p>
-					</p><p>
-					風箏需找它的線，線尋找她的指尖，指尖尋找他的臉，她尋找他的出現。找了好久，飄了好久。我們相愛好不好？
-					</p><p>
-					我只有這樣簡陋的火苗，我能照亮地空間很小，我擁有的只有一角，世界給我的關注很少。我可以做的，是在打開夜晚的時候，只限於一人的燃燒。點了好久。亮了好久。所以相愛好不好？
-					</p><p>
-					有一天你會擱淺，有一天我會蔓延。以一種彷彿注定的局面，以一種看似低調的姿態，彎腰靠近我一點，碰觸你的腳尖。綠了多久，生了多久，還是相愛好不好？
-					</p><p>
-					被剝落的牆面，被遺忘的留言，被荒廢的地點，被錯過的時間。走了很久，跟了很久，停下來相愛好不好？
-					</p><p>
-					如果錯過了這個轉角，如果我還是向下走，你還是往上走。如果接受了命運的玩笑，如果我還是不回頭，如果你還是不低頭，如果這個答案我們還是不揭曉，如果這個事實我們永遠不知道。想了很久，還是要開口，我們相愛好不好？
-					</p><p>
-					庸俗劇情裡的一種生活，陽光，下午，兩個人不說話的幸福，這樣簡單的感覺，也許真的很舒服。忙碌了很久，勞累了很久。試試來相愛好不好？
-					</p><p>
-					還是要繼續一個人的房間？還是要重複兩指尖的煙圈？還是要冷卻三點鐘的茶點？還是要迴避四目交匯的瞬間？猜測了很久，猶豫了很久，剩下的日子，要不要和另一個人擁有？那麼，我們相愛好不好？
-					</p>
+					<p>this is Home page.</p>
 				</div>
 				
 				<!-- DM -->
 				<div class="ui-content" id="DM">
-					this is DM page.
-				</div> 
+					<ul data-role="listview" data-inset="true" id="DM-content">
+						
+					</ul>
+				</div>
 				
 				<!-- 分類 -->
 				<div class="ui-content" id="Group">
 					<ul data-role="listview" data-inset="true" id="Group-content">
-						
+					
 					</ul>
-				</div> 
+				</div>
 				
 				<!-- 清單 -->
 				<div class="ui-content" id="List">
 					this is 清單 page.
-				</div> 
+				</div>
 				
 				<!-- 地圖 -->
 				<div class="ui-content" id="Map">
-					this is 地圖 page.
-				</div> 
+					<ul data-role="listview" data-inset="true" id="Map-content">
+					
+					</ul>
+				</div>
 				
 				<!--div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
 					<h1>Page Footer</h1>
-				</div--> 
+				</div-->
 			</div>
 		</div>
 	
-	
-		<div data-role="page" id="category-page" class="my-page">
-			<div  data-role="tabs">				
+		<!-- 小類頁 -->
+		<div data-role="page" id="category-page" class="my-page" data-theme="b" >
+			<div  data-role="tabs">
 				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
-					<div data-role="navbar"  id="category-page-nav" class="nav-glyphish-example" data-grid="d">	
-							<div data-role="controlgroup" style="float:left" id="category-page-nav-title" data-type="" class="ui-corner-all ui-btn-inline" data-mini="true">						
-								<!-- back -->
-								<div style="float:left">
-									<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" href="#index-page"></a>
-								</div>	
-							</div>	
-							<h2 id="category-page-nav-title-h2" style=" float:left">系統</h2>								
-						<ul id="category-page-nav-ul">	
+					<div data-role="navbar" class="nav-glyphish-example" data-grid="d" id="category-page-nav" >
+						<div class="ui-btn-inline" data-mini="true" style="width: 100%; " id="category-page-nav-div" >
+							<!-- back -->
+							<div class="headerbtn">
+								<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+							</div>
+							<h3 id="category-page-nav-title-h2" class="hstyle">小類</h3>
+						</div>
+						<ul id="category-page-nav-ul">
 							<!-- js setCategory() -->
 						</ul>
 					</div>
 				</div>
 				<!-- 分類 -->
 				<div class="ui-content" id="Category">
-					<ul data-role="listview" data-inset="true" id="Category-content">
+					<ul data-role="listview" data-inset="true" id="Category-content" >
 						
 					</ul>
 				</div>
 			</div>
 		</div>
 		
-		
-		<div data-role="page" id="product-page" class="my-page">
-			<div  data-role="tabs">				
+		<!-- 商品頁 -->
+		<div data-role="page" id="product-page" class="my-page" data-theme="c" >
+			<div  data-role="tabs">
 				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
-					<div data-role="navbar"  id="product-page-nav" class="nav-glyphish-example" data-grid="d">	
-							<div data-role="controlgroup" style="float:left" id="product-page-nav-title" data-type="" class="ui-corner-all ui-btn-inline" data-mini="true">						
+					<div data-role="navbar"  id="product-page-nav" class="nav-glyphish-example" data-grid="d">
+							<div id="product-page-nav-title" class="ui-btn-inline" data-mini="true" style="width: 100%; ">
 								<!-- back -->
-								<div style="float:left">
-									<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" href="#category-page"></a>
-								</div>	
-							</div>		
+								<div class="headerbtn">
+									<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#category-page"></a>
+								</div>
+							</div>
+					</div>
+				</div>
+				<!--  -->
+				<div data-role="main" class="ui-content" >
+					<img src="http://fs.mis.kuas.edu.tw/~s1102137126/105_graduation/02/images/group/dessert.jpg" />
+					<h1>卡迪納德州薯條</h1>
+					<div class="list-price nono">					
+						<div style="float:right">
+							<a class="ui-btn ui-btn-icon-notext ui-icon-tag ui-nodisc-icon ui-alt-icon" data-theme="b" href="#"></a>
+						</div>
+						<div style="float:right">
+							&nbsp;&nbsp;&nbsp;
+						</div>
+						<div style="float:right" data-theme="b">
+							<a class="ui-btn ui-btn-icon-notext ui-icon-heart ui-nodisc-icon ui-alt-icon" data-theme="b" href="#"></a>
+						</div>
+					</div>
+					<table class="movie-list ui-responsive" style="width:100%; " >						
+						<tbody>
+							<tr>
+								<th data-priority="1">全聯</th>
+								<td style="width:40%">111</td>
+								<td data-priority="2">
+									100% &nbsp;&nbsp;&nbsp;
+									<input type="checkbox" data-role="flipswitch" id="flip-1" data-on-text="取消" data-off-text="正確" data-wrapper-class="custom-label-flipswitch">
+								</td>
+							</tr>
+							<tr>
+								<th>家樂福</th>
+								<td>111</td>
+								<td>
+									100% &nbsp;&nbsp;&nbsp;
+									<input type="checkbox" data-role="flipswitch" id="flip-1" data-on-text="取消" data-off-text="正確" data-wrapper-class="custom-label-flipswitch">
+								</td>
+							</tr>
+							<tr>
+								<th>大潤發</th>
+								<td>111</td>
+								<td>
+									100% &nbsp;&nbsp;&nbsp;
+									<input type="checkbox" data-role="flipswitch" id="flip-1" data-on-text="取消" data-off-text="正確" data-wrapper-class="custom-label-flipswitch">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	
+		<!-- DM頁 -->
+		<div data-role="page" id="dm-page" class="my-page iframepage">
+			<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+				<div data-role="navbar"  id="dm-page-nav" class="nav-glyphish-example" data-grid="d">
+					<div id="dm-page-nav-title" class="ui-btn-inline" data-mini="true" style="width: 100%; ">
+						<!-- back -->
+						<div class="headerbtn">
+							<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+						</div>
+						<h3 id="love-page-nav-title-h2" class="hstyle">DM</h3>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="content" id="DM" style="height: 100%;">					
+				<iframe width="100%" id="my-dm-iframe" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe>
+			</div>				
+		</div>
+	
+		<!-- QR 結果頁 -->
+		<div data-role="page" id="qr-page" class="my-page">
+			<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+				<div data-role="navbar"  id="qr-page-nav" class="nav-glyphish-example" data-grid="d">
+					<div id="qr-page-nav-title" class="ui-btn-inline" data-mini="true" style="width: 100%; ">
+						<!-- back -->
+						<div class="headerbtn">
+							<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+						</div>
+						<h3 id="love-page-nav-title-h2" class="hstyle">QR更新價格</h3>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<div class="ui-content" id="QR-content" style="height: 100%;">		
+			
+			</div>				
+		</div>
+	
+		<!-- 搜尋 結果頁 -->
+		<div data-role="page" id="search-page" class="my-page" data-theme="b">
+			<div  data-role="tabs">
+				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+					<div data-role="navbar" class="nav-glyphish-example" data-grid="d" id="search-page-nav" >
+						<div class="ui-btn-inline" data-mini="true" style="width: 100%; ">
+							<!-- back -->
+							<div class="headerbtn">
+								<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+							</div>
+							<!-- search input -->
+							<div class="headerbtn" style="width: 70%" >
+								<input type="text" id="search2-input" placeholder="Search..."/>
+							</div>
+							<!-- search -->
+							<div class="headerbtn">
+								<a class="ui-btn  ui-btn-icon-notext ui-icon-search ui-nodisc-icon ui-alt-icon" href="#search-page" onclick="searchsomething('search2-input')"></a>								
+							</div>
+						</div>
+						<ul id="search-page-nav-ul">
+							<!-- js () -->
+						</ul>
 					</div>
 				</div>
 				<!-- 分類 -->
-				<div class="ui-content" >
-					
-					
-					<div class="rwd-example" id="Product">
-						<!-- Lead story block -->
-						<div class="ui-block-a">
-							<div class="ui-body ui-body-d">
-								<img src="http://fs.mis.kuas.edu.tw/~s1102137126/105_graduation/02/images/group/dessert.jpg">  
-							</div>
-						</div>
-						<!-- secondary story block #1 -->
-						<div class="ui-block-b">
-							<div class="ui-body ui-body-d">
-								<h4>卡迪納德州薯條</h4>
-							</div>
-						</div>
-						<!-- secondary story block #2 -->
-						<div class="ui-block-c">
-						    <div class="ui-body ui-body-d">
-								<!-- heart -->
-								<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-heart ui-nodisc-icon ui-alt-icon"></a>
-								<!-- bell -->
-								<a class="ui-btn ui-corner-all ui-btn-icon-notext ui-icon-tag ui-nodisc-icon ui-alt-icon"></a>
-						    </div>
-						</div>
-					</div><!-- /rwd-example -->
+				<div class="ui-content" id="Search">
+					<ul data-role="listview" data-inset="true" id="Search-content">
+						
+					</ul>
 				</div>
 			</div>
-		</div>  		
+		</div>
+	
+		<!-- 提醒頁 -->
+		<div data-role="page" id="alert-page" class="my-page">
+			<div  data-role="tabs">
+				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+					<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+						<div class="ui-btn-inline" data-mini="true" style="width: 100%; " id="alert-page-nav" >
+							<!-- back -->
+							<div class="headerbtn">
+								<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+							</div>
+							<h3 id="alert-page-nav-title-h2" class="hstyle">消息</h3>
+						</div>
+						<ul id="alert-page-nav-ul">
+							<!-- js () -->
+						</ul>
+					</div>
+				</div>
+				<!-- 分類 -->
+				<div class="ui-content" id="alert">
+					<ul data-role="listview" data-inset="true" id="alert-content">
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 最愛頁 -->
+		<div data-role="page" id="love-page" class="my-page" >
+			<div  data-role="tabs">
+				<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+					<div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+						<div class="ui-btn-inline" data-mini="true" style="width: 100%; " id="love-page-nav" >
+							<!-- back -->
+							<div class="headerbtn">
+								<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+							</div>
+							<h3 id="love-page-nav-title-h2" class="hstyle">最愛</h3>
+						</div>
+						<ul id="love-page-nav-ul">
+							<!-- js () -->
+						</ul>
+					</div>
+				</div>
+				<!-- 分類 -->
+				<div class="ui-content" id="love">
+					<ul data-role="listview" data-inset="true" id="love-content">
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 地圖頁 -->
+		<div data-role="page" id="map-page" class="my-page iframepage">
+			<div data-role="header" id="header" class="content-primary" data-position="fixed" data-tap-toggle="false" data-theme="a">
+				<div data-role="navbar"  id="map-page-nav" class="nav-glyphish-example" data-grid="d">
+					<div id="map-page-nav-title" class="ui-btn-inline" data-mini="true" style="width: 100%; ">
+						<!-- back -->
+						<div class="headerbtn">
+							<a class="ui-btn ui-btn-icon-notext ui-icon-back ui-nodisc-icon ui-alt-icon" data-transition="none" href="#index-page"></a>
+						</div>
+						<h3 id="map-page-nav-title-h2" class="hstyle">地圖</h3>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<p id="map-content-h"></p>
+			<div class="content" id="map-content" style="height: 100%;">					
+				
+			</div>				
+		</div>
+		
+		
 	</body>
 </html>
