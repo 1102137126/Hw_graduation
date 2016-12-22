@@ -1,7 +1,7 @@
-<?php		
+<?php
 	//Category
 	include("../connections_db.php");
-	$sql = "SELECT `id`, `name`, `groupid` 
+	$sql = "SELECT `id`, `name`, `groupid`
 			FROM `buy_category`";
 	$sth = $conn->prepare($sql);
 	$sth->execute();
