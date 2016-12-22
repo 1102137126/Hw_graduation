@@ -34,7 +34,7 @@
 				return;
 			}
 			rename($uploaddir.$tmp_name,$uploaddir.$refile_name);							//在上傳目錄後更改原檔名為新檔名 
-			return $refile_name;
+			//return $refile_name;
 		$picture = $refile_name;
 	}else {
 		$picture = "cat002bra022bk0056.gif";

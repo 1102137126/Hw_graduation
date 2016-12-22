@@ -55,7 +55,7 @@
 			$sth->bindParam(":shopname", $shopname);
 			$sth->bindParam(":date", $date);
 			$sth->execute();
-		} else if($aaa['date'] < $date and $productPrice > 0 and $aaa['price'] != $productPrice) {
+		} else if($aaa['date'] < $date && $productPrice > 0 && $aaa['price'] != $productPrice) {
 			$sql = "INSERT INTO `buy_checklist`(`id`, `userid`, `name`, `barcode`, `price`, `shopname`, `picture`, `date`, `state`, `remarks`, `point`) 
 					VALUES (null,:user,:name,null,:price,:shopname,'cat002bra022bk0056.gif',:date,'價格更新',null,2)";
 			$sth = $conn->prepare($sql);
