@@ -8,16 +8,17 @@
 	<name>行動比價系統</name>
 	
 	<description>
-		幫助想省錢的人，在購買食品方面，將金錢做到最划算的組合
+		幫助想省錢的人，在購買食品、或滿足想吃零食慾望的同時，
+		將金錢做到最划算的組合
 	</description>
 	
 	<!-- QRcode Scanner -->
 	<gap:plugin name="cordova-plugin-barcodescanner" source="npm" />
 	<gap:plugin name="cordova-plugin-geolocation" source="npm" />
-	<!--gap:plugin name="org.madmobile.cordovaplugins.zbarscanner" source="npm" /-->
-	
-	<!-- 開場畫面 -->
-	<gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+	<!--gap:plugin name="org.madmobile.cordovaplugins.zbarscanner" source="npm" />
+	 <gap:plugin name="org.apache.cordova.splashscreen" /-->
+	<!-- 開場畫面 >
+	<gap:plugin name="cordova-plugin-splashscreen" source="npm" /-->
 	
 	<author href="http://fs.mis.kuas.edu.tw/~s1102137126/2016_app/" email="1102137126@kuas.edu.tw">
 		kuas mis 畢業專題小組
@@ -30,10 +31,27 @@
 	<!-- 加入其它plugin設定 -->
 	
 	
-	<!-- screen: 設定開場畫面的 Resource -->
-	<preference name="SplashScreen" value="images/pig.png" />
-	<!-- 顯示開場畫面的時間(單位: 毫秒) -->
-	<preference name="SplashScreenDelay" value="10" />
+	
+	<!-- platform name="android">
+		<splash src="images/pig.png" density="land-hdpi"/>
+		
+		<splash src="res/screen/android/splash-land-ldpi.png" density="land-ldpi"/>
+		<splash src="res/screen/android/splash-land-mdpi.png" density="land-mdpi"/>
+		<splash src="res/screen/android/splash-land-xhdpi.png" density="land-xhdpi"/>
+
+		<splash src="res/screen/android/splash-port-hdpi.png" density="port-hdpi"/>
+		<splash src="res/screen/android/splash-port-ldpi.png" density="port-ldpi"/>
+		<splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+		<splash src="res/screen/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+	</platform-->
+	
+	
+	
+	
+	<!-- 開場畫面 >
+	<preference name="AutoHideSplashScreen" value="true" />
+	<preference name="splashscreen", "splash" />
+	<preference name="SplashScreenDelay" value="3000" /-->
 	
 	<access origin="*" subdomains="true" />
 	

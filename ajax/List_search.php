@@ -15,7 +15,7 @@
 			JOIN `buy_category` C ON P.categoryid=C.id
 			JOIN `buy_group` G ON C.groupid = G.id
 			WHERE P.`name` like :name
-            GROUP BY G.`id`, G.`name`";
+		 GROUP BY G.`id`, G.`name`";
 	$sth = $conn->prepare($sql);
 	$sth->bindParam(":name", $sqlstr);
 	$sth->execute();

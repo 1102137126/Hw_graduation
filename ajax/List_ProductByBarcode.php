@@ -1,16 +1,12 @@
 <?php		
 	//Product
-	$productid = $_GET['productid'];
+	$barcode = $_GET['barcode'];
 	include("../connections_db.php");
-	/*$sql = "SELECT P.`id`, P.`name`, S.`name` shopname, P.`picture`, `price`
-			FROM `buy_product` P
- 			LEFT JOIN `buy_salelist` SL ON P.`id`=SL.`productid` AND P.id=:productid
- 			LEFT JOIN `buy_shop` S ON S.id=SL.shopid";*/
 	$sql = "SELECT P.`id`, P.`name`, P.`picture`
 			FROM `buy_product` P
-			WHERE P.id=:productid";			
+			WHERE P.barcode=:barcode";			
 	$sth = $conn->prepare($sql);
-	$sth->bindParam(":productid", $productid);
+	$sth->bindParam(":barcode", $barcode);
 	$sth->execute();
 	$aaa = $sth->fetch();
 	$result[0] = $aaa;
@@ -19,9 +15,9 @@
 			FROM `buy_product` P
  			LEFT JOIN `buy_salelist` SL ON P.`id`=SL.`productid`
  			LEFT JOIN `buy_shop` S ON S.id=SL.shopid
-			WHERE P.id=:productid";			
+			WHERE P.barcode=:barcode";			
 	$sth = $conn->prepare($sql);
-	$sth->bindParam(":productid", $productid);
+	$sth->bindParam(":barcode", $barcode);
 	$sth->execute();
 	$bbb = $sth->fetchAll();
 	$result[1] = $bbb;	
