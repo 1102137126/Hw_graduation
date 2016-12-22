@@ -1,6 +1,11 @@
 <?php
 	include("../connections_db.php");
 	date_default_timezone_set('UTC');
+	user = ':user';
+	name = ':name';
+	price = ':price';
+	shopname = ':shopname';
+	sdate = ':date';
 	
 	$dataChecked = $_POST['dataChecked'];
 	$shopname = mb_substr($_POST['shopname'],0,2,'utf8');
@@ -47,21 +52,21 @@
 			$sql = "INSERT INTO `buy_checklist`(`id`, `userid`, `name`, `barcode`, `price`, `shopname`, `picture`, `date`, `state`, `remarks`, `point`) 
 					VALUES (null,:user,:name,null,:price,:shopname,null,:date,'QR新增資料',null,0)";
 			$sth = $conn->prepare($sql);
-			$sth->bindParam(":user", $userid);
-			$sth->bindParam(":name", $productName);
-			$sth->bindParam(":price", $productPrice);
-			$sth->bindParam(":shopname", $shopname);
-			$sth->bindParam(":date", $date);
+			$sth->bindParam(user, $userid);
+			$sth->bindParam(name, $productName);
+			$sth->bindParam(price, $productPrice);
+			$sth->bindParam(shopname, $shopname);
+			$sth->bindParam(sdate, $date);
 			$sth->execute();
 		} else if($aaa['date'] < $date && $productPrice > 0 && $aaa['price'] != $productPrice) {
 			$sql = "INSERT INTO `buy_checklist`(`id`, `userid`, `name`, `barcode`, `price`, `shopname`, `picture`, `date`, `state`, `remarks`, `point`) 
 					VALUES (null,:user,:name,null,:price,:shopname,'cat002bra022bk0056.gif',:date,'價格更新',null,2)";
 			$sth = $conn->prepare($sql);
-			$sth->bindParam(":user", $userid);
-			$sth->bindParam(":name", $productName);
-			$sth->bindParam(":price", $productPrice);
-			$sth->bindParam(":shopname", $shopname);
-			$sth->bindParam(":date", $date);
+			$sth->bindParam(user, $userid);
+			$sth->bindParam(name, $productName);
+			$sth->bindParam(price, $productPrice);
+			$sth->bindParam(shopname, $shopname);
+			$sth->bindParam(sdate, $date);
 			$sth->execute();	
 			
 			$point+=2;
@@ -77,9 +82,9 @@
 					WHERE id=:id";
 			$sth = $conn->prepare($sql);
 			$sth->bindParam(":id", $aaa['id']);
-			$sth->bindParam(":price", $productPrice);
-			$sth->bindParam(":price", $productPrice);
-			$sth->bindParam(":date", $date);
+			$sth->bindParam(price, $productPrice);
+			$sth->bindParam(price, $productPrice);
+			$sth->bindParam(sdate, $date);
 			$sth->execute();
 		}
 	}

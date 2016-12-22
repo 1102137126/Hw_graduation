@@ -2,7 +2,7 @@
 	//Group
 	include("../connections_db.php");
 	
-	ACTION_1 = 'groupid';
+	groupid = 'groupid';
 	
 	$sql = "SELECT G.`id`, G.`name`, G.`picture`
 			FROM `buy_group` G";
@@ -18,14 +18,14 @@
 	$bbb = $sth->fetchAll();
 	
 	$str = "";
-	$id = $bbb[0][ACTION_1] ;
+	$id = $bbb[0][groupid] ;
 	for($j=0 ;$j<count($bbb);$j++ ){
-		if($bbb[$j][ACTION_1] == $id) {				
+		if($bbb[$j][groupid] == $id) {				
 			$str .= $bbb[$j]['name']." ";
 		} else {
 			$result[$id-1]['content'] = $str;
 			$str = $bbb[$j]['name']." ";
-			$id = $bbb[$j][ACTION_1];
+			$id = $bbb[$j][groupid];
 		}			
 	}
 	$result[$id-1]['content'] = $str;

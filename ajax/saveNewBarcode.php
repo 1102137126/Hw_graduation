@@ -1,7 +1,7 @@
 <?php
 	include("../connections_db.php");
 	date_default_timezone_set('UTC');
-	ACTION_1 = 'uploadFile';
+	uploadFile = 'uploadFile';
 	
 	
 	$name = $_POST['name'];
@@ -10,12 +10,12 @@
 	$price = $_POST['price'];
 	$userid = $_POST['userid'];
 	$today = date("Y-m-d");
-	if (!empty($_FILES[ACTION_1]['name'])) {
-		if ($_FILES[ACTION_1]['error'][0] != UPLOAD_ERR_OK) {  
+	if (!empty($_FILES[uploadFile]['name'])) {
+		if ($_FILES[uploadFile]['error'][0] != UPLOAD_ERR_OK) {  
 			echo "上傳失敗";
 			return;
 		}
-		$file = $_FILES[ACTION_1];
+		$file = $_FILES[uploadFile];
 		$sql = "SELECT `id` FROM `buy_product` ORDER BY `id` DESC LIMIT 1";					//取得最後的id
 		$sth = $conn->prepare($sql);
 		$sth->execute();
