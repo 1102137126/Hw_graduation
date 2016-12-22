@@ -1,6 +1,8 @@
 <?php
 	include("../connections_db.php");
 	date_default_timezone_set('UTC');
+	ACTION_1 = 'uploadFile';
+	
 	
 	$name = $_POST['name'];
 	$barcode = $_POST['barcode'];
@@ -8,12 +10,12 @@
 	$price = $_POST['price'];
 	$userid = $_POST['userid'];
 	$today = date("Y-m-d");
-	if (!empty($_FILES['uploadFile']['name'])) {
-		if ($_FILES['uploadFile']['error'][0] != UPLOAD_ERR_OK) {  
+	if (!empty($_FILES[ACTION_1]['name'])) {
+		if ($_FILES[ACTION_1]['error'][0] != UPLOAD_ERR_OK) {  
 			echo "上傳失敗";
 			return;
 		}
-		$file = $_FILES['uploadFile'];
+		$file = $_FILES[ACTION_1];
 		$sql = "SELECT `id` FROM `buy_product` ORDER BY `id` DESC LIMIT 1";					//取得最後的id
 		$sth = $conn->prepare($sql);
 		$sth->execute();
@@ -30,11 +32,10 @@
 		$sourse = $file['tmp_name'][0];
 		
 		if(!move_uploaded_file($sourse, $uploaddir . $tmp_name)){
-				echo "移動檔案失敗";
-				return;
-			}
-			rename($uploaddir.$tmp_name,$uploaddir.$refile_name);							//在上傳目錄後更改原檔名為新檔名 
-			//return $refile_name;
+			echo "移動檔案失敗";
+			return;
+		}
+		rename($uploaddir.$tmp_name,$uploaddir.$refile_name);								//在上傳目錄後更改原檔名為新檔名 
 		$picture = $refile_name;
 	}else {
 		$picture = "cat002bra022bk0056.gif";

@@ -12,7 +12,6 @@
 	$point = $_POST['point'];
 	$shopid = 0;
 	$today = date("Y-m-d");
-	//$QRdata = $_POST['QRdata'];
 	switch ($shopname) {
 		case '全聯':
 			  $shopid = 1;
@@ -27,7 +26,6 @@
 			  $shopname = '大潤發';
 			  break;
 		default:
-			//echo "No number between 1 and 3";
 	}
 	
 	for($i=0;$i<count($dataChecked);$i++){
@@ -84,20 +82,5 @@
 			$sth->bindParam(":date", $date);
 			$sth->execute();
 		}
-		//if ($aaa )
 	}
-	/*$state = "新增商品";
-	$sql = "INSERT INTO `buy_checklist`(`id`, `userid`, `name`, `barcode`, `price`, `shopname`, `picture`, `state`, `remarks`) 
-			VALUES (null, :userid,:name,:barcode,:price,:shopname,:picture,:state,null)";
-	$sth = $conn->prepare($sql);
-	$sth->bindParam(":userid", $userid);
-	$sth->bindParam(":name", $name);
-	$sth->bindParam(":barcode", $barcode);
-	$sth->bindParam(":price", $price);
-	$sth->bindParam(":shopname", $shop);
-	$sth->bindParam(":picture", $picture);
-	$sth->bindParam(":state", $state);
-	//$sth->bindParam(":remarks", null);
-	$sth->execute();
-	echo $sth->rowCount();*/
 ?>

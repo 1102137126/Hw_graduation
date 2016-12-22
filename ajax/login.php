@@ -3,7 +3,6 @@
 	include("../connections_db.php");
 	$account = $_GET['account'];
 	$password = $_GET['password'];
-	
 	$sql = "SELECT COUNT(*)
 			FROM `buy_user`
 			WHERE account=:account && password=:password";			

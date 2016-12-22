@@ -4,9 +4,6 @@
 	$account = $_GET['account'];
 	$password = $_GET['password'];
 	$name = $_GET['name'];
-	//$cellphone = $_GET['cellphone'];
-	
-	
 	
 	$sql = "INSERT INTO `buy_user`(`id`, `account`, `password`, `name`, `telephone`, `cellphone`, `point`) 
 			VALUES (null,:account,:password,:name,null,null,0)";			

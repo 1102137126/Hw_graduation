@@ -34,5 +34,4 @@
 	$bbb = $sth->fetchAll();
 	$result[1] = $bbb;
 	echo json_encode($result);
-	//echo $sqlstr;
 ?>

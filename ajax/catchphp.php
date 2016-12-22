@@ -1,6 +1,5 @@
 <?php
 	header('Access-Control-Allow-Origin: *');
-	//include "https://www.cetustek.com.tw/common/invoice/queryInv.php";
 	
 	$myvars = 'type=' . $_POST['type'] . '&number=' . $_POST['number'] . '&date=' . $_POST['date'] . '&random=' . $_POST['random'];
 	function getter($url, $myvars) {

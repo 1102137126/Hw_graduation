@@ -1,6 +1,9 @@
 <?php		
 	//Group
 	include("../connections_db.php");
+	
+	ACTION_1 = 'groupid';
+	
 	$sql = "SELECT G.`id`, G.`name`, G.`picture`
 			FROM `buy_group` G";
 	$sth = $conn->prepare($sql);
@@ -15,18 +18,17 @@
 	$bbb = $sth->fetchAll();
 	
 	$str = "";
-	$id = $bbb[0]['groupid'] ;
+	$id = $bbb[0][ACTION_1] ;
 	for($j=0 ;$j<count($bbb);$j++ ){
-		if($bbb[$j]['groupid'] == $id) {				
+		if($bbb[$j][ACTION_1] == $id) {				
 			$str .= $bbb[$j]['name']." ";
 		} else {
 			$result[$id-1]['content'] = $str;
 			$str = $bbb[$j]['name']." ";
-			$id = $bbb[$j]['groupid'];
+			$id = $bbb[$j][ACTION_1];
 		}			
 	}
 	$result[$id-1]['content'] = $str;
-	//echo json_encode($aaa);
 	
 	
 	echo json_encode($result);
